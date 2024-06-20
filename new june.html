@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Are you planning to shop online using your mobile device? Come visit us right now to find out all items related to mobile phones, such as costs, features, reviews, comparisons, videos, queries, accessories, and more.">
+    <meta name="keywords"
+        content=" Mobile Phones, Mobile Prices in India, Online Mobile Shopping, Smartphone deals, Best mobile accessories, Buy mobile phones, Affordable android smartphones under 10,000, Affordable android smartphones under 10k, 20k, 30k, Best mobile phones under 10,000, Best mobile phones under 20,000, Latest iPhone accessories for 2024" />
+    <title>Mobiluxe premium shopping experience for mobile devices</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css"
+        integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <style>
+        body {
+            width: 1450px;
+            display: fixed;
+        }
+
+        .navbar {
+            width: 1490px;
+            margin: 10px;
+            background-color: #333;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            color: #fff;
+            text-decoration: none;
+            margin-left: -50px;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-left: -200px;
+            margin-top: 10px;
+            padding: 0;
+        }
+
+        .nav-links li {
+            position: relative;
+            margin-right: 20px;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ccc;
+        }
+
+        .submenu,
+        .sub-submenu {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            padding: 10px;
+            list-style: none;
+        }
+
+        .submenu li {
+            margin: 0;
+        }
+
+        .submenu a {
+            padding: 5px 10px;
+            display: block;
+        }
+
+        .nav-links li:hover .submenu,
+        .submenu li:hover .sub-submenu {
+            display: block;
+            left: 30px;
+        }
+
+        .search-bar {
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-bar input {
+            padding: 5px;
+            font-size: 1rem;
+        }
+
+        .auth-links a {
+            color: #fff;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background-color: #333;
+                padding: 1rem;
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+            }
+
+            .burger {
+                display: flex;
+            }
+
+            .burger.toggle .line1 {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .burger.toggle .line2 {
+                opacity: 0;
+            }
+
+            .burger.toggle .line3 {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+        }
+
+        .slider {
+            width: 100%;
+            height: 700px;
+            overflow: hidden;
+        }
+
+        .slide {
+            width: 100%;
+            height: 500px;
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        .CartBtn {
+            width: 140px;
+            height: 40px;
+            border-radius: 12px;
+            border: none;
+            background-color: rgb(255, 208, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition-duration: 0.5s;
+            overflow: hidden;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.103);
+            position: relative;
+            margin-right: -300px;
+        }
+
+        .IconContainer {
+            position: absolute;
+            left: -50px;
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            z-index: 2;
+            transition-duration: 0.5s;
+        }
+
+        .icon {
+            border-radius: 1px;
+        }
+
+        .text {
+            height: 100%;
+            width: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(17, 17, 17);
+            z-index: 1;
+            transition-duration: 0.5s;
+            font-size: 1.04em;
+            font-weight: 600;
+            margin-top: 13px;
+        }
+
+        .CartBtn:hover .IconContainer {
+            transform: translateX(58px);
+            border-radius: 40px;
+            transition-duration: 0.5s;
+        }
+
+        .CartBtn:hover .text {
+            transform: translate(10px, 0px);
+            transition-duration: 0.5s;
+        }
+
+        .CartBtn:active {
+            transform: scale(0.95);
+            transition-duration: 0.5s;
+        }
+
+        .containerr {
+            position: relative;
+            --size-button: 40px;
+            color: white;
+            right: -250px;
+        }
+
+        .input {
+            padding-left: var(--size-button);
+            height: var(--size-button);
+            font-size: 15px;
+            border: none;
+            color: #fff;
+            outline: none;
+            width: var(--size-button);
+            transition: all ease 0.3s;
+            background-color: #191a1e;
+            box-shadow: 1.5px 1.5px 3px #0e0e0e, -1.5px -1.5px 3px rgb(95 94 94 / 25%),
+                inset 0px 0px 0px #0e0e0e, inset 0px -0px 0px #5f5e5e;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .input:focus,
+        .input:not(:invalid) {
+            width: 200px;
+            cursor: text;
+            box-shadow: 0px 0px 0px #0e0e0e, 0px 0px 0px rgb(95 94 94 / 25%),
+                inset 1.5px 1.5px 3px #0e0e0e, inset -1.5px -1.5px 3px #5f5e5e;
+        }
+
+        .input:focus+.icon,
+        .input:not(:invalid)+.icon {
+            pointer-events: all;
+            cursor: pointer;
+        }
+
+        .container .icon {
+            position: absolute;
+            width: var(--size-button);
+            height: var(--size-button);
+            top: 0;
+            left: 0;
+            padding: 8px;
+            pointer-events: none;
+        }
+
+        .container .icon svg {
+            width: 70%;
+            height: 70%;
+        }
+
+        .pre {
+            pointer-events: none;
+            margin-left: 30px;
+        }
+
+        .product-grid {
+            background-color: #fff;
+            font-family: "Montserrat", sans-serif;
+            text-align: center;
+        }
+
+        .product-grid .product-image {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-grid .product-image a.image {
+            display: block;
+        }
+
+        .product-grid .product-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        .product-grid .product-image .pic-1 {
+            transition: all 0.3s ease 0s;
+        }
+
+        .product-grid .product-image:hover .pic-1 {
+            transform: translateX(100%);
+        }
+
+        .product-grid .product-image .pic-2 {
+            width: 100%;
+            height: 100%;
+            transform: translateX(-101%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all 0.3s ease 0s;
+        }
+
+        .product-grid .product-image:hover .pic-2 {
+            transform: translateX(0);
+        }
+
+        .product-grid .product-sale-label {
+            color: #fff;
+            background: var(--bs-hover);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 2px 8px;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+
+        .product-grid .product-like-icon {
+            color: #696969;
+            font-size: 22px;
+            line-height: 20px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+
+        .product-grid .product-like-icon:hover {
+            color: var(--bs-hover);
+        }
+
+        .product-grid .product-like-icon:before,
+        .product-grid .product-like-icon:after {
+            content: attr(data-tip);
+            color: #fff;
+            background-color: #000;
+            font-size: 12px;
+            line-height: 18px;
+            padding: 7px 7px 5px;
+            visibility: hidden;
+            position: absolute;
+            right: 0;
+            top: 15px;
+            transition: all 0.3s ease 0s;
+        }
+
+        .product-grid .product-like-icon:after {
+            content: "";
+            height: 15px;
+            width: 15px;
+            padding: 0;
+            transform: translateX(-50%) rotate(45deg);
+            right: auto;
+            left: 50%;
+            top: 15px;
+            z-index: -1;
+        }
+
+        .product-grid .product-like-icon:hover:before,
+        .product-grid .product-like-icon:hover:after {
+            visibility: visible;
+            top: 30px;
+        }
+
+        .product-grid .product-links {
+            width: 170px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            opacity: 0;
+            transform: translateX(-50%);
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transition: all 0.3s ease 0s;
+        }
+
+        .product-grid:hover .product-links {
+            bottom: 40px;
+            opacity: 1;
+        }
+
+        .product-grid .product-links li {
+            display: inline-block;
+            margin: 0 2px;
+        }
+
+        .product-grid .product-links li a {
+            color: #fff;
+            background: #192a56;
+            font-size: 16px;
+            line-height: 48px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: block;
+            transition: all 0.3s ease 0s;
+        }
+
+        .product-grid:hover .product-links li a:hover {
+            background: #333;
+        }
+
+        .product-grid .product-content {
+            text-align: left;
+            padding: 15px 0 0;
+        }
+
+        .product-grid .title {
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: capitalize;
+            margin: 0 0 8px;
+        }
+
+        .product-grid .title a {
+            color: #333;
+            transition: all 0.3s ease 0s;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .product-grid .title a:hover {
+            color: var(--bs-hover);
+        }
+
+        .product-grid .price {
+            color: var(--bs-hover);
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .product-grid .price span {
+            color: #555;
+            font-size: 14px;
+            font-weight: 400;
+            text-decoration: line-through;
+            margin: 0 5px 0 0;
+        }
+
+        @media screen and (max-width: 990px) {
+            .product-grid {
+                margin: 0 0 30px;
+            }
+        }
+
+        .category {
+            max-width: 1370px;
+            /*   display: flex; */
+            /*   flex-wrap: wrap; */
+            /*   justify-content: center; */
+            gap: 10px;
+            /*   row-gap: 20px; */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            width: 100%;
+            margin-top: 50px;
+            margin-left: 70px;
+            margin-right: 30px;
+            margin-bottom: 50px;
+        }
+
+        .item {
+            position: relative;
+            /*   min-width: 370px; */
+            height: 130px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            background: #ffffff;
+            border: 1px solid #cdcdcd;
+            border-radius: 3px;
+            text-decoration: none;
+            transition: 0.5s;
+            z-index: 0;
+        }
+
+        .item:hover {
+            border: 1px solid #fff0;
+            box-shadow: 3px 3px 20px rgba(50, 50, 50, 0.25);
+            border-radius: 3px;
+        }
+
+        .item .title {
+            font-style: normal;
+            font-weight: 700;
+            font-size: 23px;
+            line-height: 28px;
+            /* Основной текст */
+            color: #2f3035;
+            padding-left: 20px;
+            padding-top: 20px;
+        }
+
+        .item:hover>.title {
+            color: #1c62cd;
+        }
+
+        .item .link {
+            font-size: 14px;
+            padding-left: 20px;
+            padding-bottom: 14px;
+            /* светло серый текст */
+            color: #c4c4c4;
+        }
+
+        .item .link::after {
+            content: url("data:image/svg+xml,%3Csvg width='6' height='9' viewBox='0 0 6 9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0.228824 7.88793C-0.0650262 8.13366 -0.0762933 8.54196 0.203658 8.79989C0.48361 9.05782 0.948767 9.06771 1.24262 8.82198C1.24262 8.82198 5.77719 4.97116 5.78955 4.95998C6.07934 4.69388 6.06851 4.27195 5.76535 4.01758L1.24266 0.178763C0.949277 -0.067399 0.484101 -0.0581918 0.203658 0.199327C-0.0767845 0.456847 -0.0662956 0.865161 0.227086 1.11132L3.71295 4.12125C3.94389 4.32066 3.94393 4.67861 3.71304 4.87807L0.228824 7.88793Z' fill='%23C4C4C4'/%3E%3C/svg%3E%0A");
+            margin-left: 3px;
+            transition: 0.5s;
+        }
+
+        .item:hover>.link::after {
+            margin-left: 8px;
+        }
+
+        .item .img {
+            position: absolute;
+            right: 37px;
+            top: 5px;
+            z-index: -1;
+        }
+
+        #myBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: red;
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+
+        #myBtn:hover {
+            background-color: #555;
+        }
+
+        /*
+
+
+
+
+dnlsdfsdc*/
+
+        .footer-distributed {
+            background: #2b2a2a;
+            box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+            box-sizing: border-box;
+            width: 1515px;
+            text-align: left;
+            font: bold 16px sans-serif;
+            padding: 55px 50px;
+        }
+
+        .footer-distributed .footer-left,
+        .footer-distributed .footer-center,
+        .footer-distributed .footer-right {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        /* Footer left */
+
+        .footer-distributed .footer-left {
+            width: 40%;
+        }
+
+        /* The company logo */
+
+        .footer-distributed h3 {
+            color: #ffffff;
+            font: normal 36px "Open Sans", cursive;
+            margin: 0;
+        }
+
+        .footer-distributed h3 span {
+            color: lightseagreen;
+        }
+
+        /* Footer links */
+
+        .footer-distributed .footer-links {
+            color: #ffffff;
+            margin: 20px 0 12px;
+            padding: 0;
+        }
+
+        .footer-distributed .footer-links a {
+            display: inline-block;
+            line-height: 1.8;
+            font-weight: 400;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .footer-distributed .footer-company-name {
+            color: #222;
+            font-size: 14px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        /* Footer Center */
+
+        .footer-distributed .footer-center {
+            width: 35%;
+        }
+
+        .footer-distributed .footer-center i {
+            background-color: #33383b;
+            color: #ffffff;
+            font-size: 25px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 42px;
+            margin: 10px 15px;
+            vertical-align: middle;
+        }
+
+        .footer-distributed .footer-center i.fa-envelope {
+            font-size: 17px;
+            line-height: 38px;
+        }
+
+        .footer-distributed .footer-center p {
+            display: inline-block;
+            color: #ffffff;
+            font-weight: 400;
+            vertical-align: middle;
+            margin: 0;
+        }
+
+        .footer-distributed .footer-center p span {
+            display: block;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .footer-distributed .footer-center p a {
+            color: lightseagreen;
+            text-decoration: none;
+        }
+
+        .footer-distributed .footer-links a:before {
+            content: "|";
+            font-weight: 300;
+            font-size: 20px;
+            left: 0;
+            color: #fff;
+            display: inline-block;
+            padding-right: 5px;
+        }
+
+        .footer-distributed .footer-links .link-1:before {
+            content: none;
+        }
+
+        /* Footer Right */
+
+        .footer-distributed .footer-right {
+            width: 20%;
+        }
+
+        .footer-distributed .footer-company-about {
+            line-height: 20px;
+            color: #92999f;
+            font-size: 13px;
+            font-weight: normal;
+            margin: 0;
+        }
+
+        .footer-distributed .footer-company-about span {
+            display: block;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /*jfjksdf*/
+        .social-menu ul {
+            position: absolute;
+
+            padding: 0;
+            margin: 0;
+            transform: translate(-50%, -50%);
+            display: flex;
+        }
+
+        .social-menu ul li {
+            list-style: none;
+            margin: 0 15px;
+        }
+
+        .social-menu ul li .fab {
+            font-size: 30px;
+            line-height: 60px;
+            transition: 0.3s;
+            color: #000;
+        }
+
+        .social-menu ul li .fab:hover {
+            color: #fff;
+        }
+
+        .social-menu ul li a {
+            position: relative;
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #fff;
+            text-align: center;
+            transition: 0.6s;
+            box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .social-menu ul li a:hover {
+            transform: translate(0, -10%);
+        }
+
+        .social-menu ul li:nth-child(1) a:hover {
+            background-color: rgba(0, 0, 0, 0.829);
+        }
+
+        .social-menu ul li:nth-child(2) a:hover {
+            background-color: #e4405f;
+        }
+
+        .social-menu ul li:nth-child(3) a:hover {
+            background-color: #0077b5;
+        }
+
+        .social-menu ul li:nth-child(4) a:hover {
+            background-color: #000;
+        }
+
+        /* If you don't want the footer to be responsive, remove these media queries */
+
+        @media (max-width: 880px) {
+            .footer-distributed {
+                font: bold 14px sans-serif;
+            }
+
+            .footer-distributed .footer-left,
+            .footer-distributed .footer-center,
+            .footer-distributed .footer-right {
+                display: block;
+                width: 100%;
+                margin-bottom: 40px;
+                text-align: center;
+            }
+
+            .footer-distributed .footer-center i {
+                margin-left: 0;
+            }
+        }
+
+        .newsletter {
+            background-color: #000;
+            width: 1500px;
+            margin-top: 350px;
+            border-bottom: 1px solid #000000;
+
+            color: #fff;
+        }
+
+        .newsletter h1 {
+            font-weight: 600;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .newsletter p {
+            font-size: 22px;
+        }
+
+        .newsletter form {
+            margin-top: 20px;
+        }
+
+        .newsletter form input {
+            width: 100%;
+            padding: 18px;
+            border: none;
+        }
+
+        .newsletter form input[type="email"] {
+            border-radius: 10px 0px 0px 10px;
+        }
+
+        .newsletter form input[type="email"]:focus {
+            border: none;
+            outline: none;
+        }
+
+        .newsletter form input[type="submit"] {
+            border-radius: 0px 10px 10px 0px;
+            background-color: #e20001;
+            color: #fff;
+        }
+
+        .newsletter form input[type="submit"]:hover {
+            background-color: #c00000;
+            color: #fff;
+        }
+
+        @media (max-width: 767px) {
+            .newsletter form input[type="email"] {
+                border-radius: 10px;
+            }
+
+            .newsletter form input[type="submit"] {
+                border-radius: 10px;
+                margin-top: 5px;
+            }
+
+            .newsletter h1 {
+                font-size: 35px;
+            }
+
+            .newsletter p {
+                font-size: 18px;
+                font-weight: lighter !important;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="file:///D:/first%20e-commerce/new%20june.html" class="logo">
+                <img src="c:\Users\BP Sharma\OneDrive\Pictures\Screenshots\Screenshot 2024-05-213 084644.png"
+                    alt="website logo">
+            </a>
+
+            <ul class="nav-links">
+                <li>
+                    <a href="#">Android</a>
+                    <ul class="submenu">
+                        <li>
+                            <a href="file:///D:/first%20e-commerce/Android/Samsung.html">Samsung</a>
+                            <ul class="sub-submenu">
+                                <li><a href="#">Samsung Galaxy A series</a></li>
+                                <li><a href="#">Samsung Galaxy A05</a></li>
+                                <li><a href="#">Samsung Galaxy F series</a></li>
+                                <li><a href="#">Samsung Galaxy J series</a></li>
+                                <li><a href="#">Samsung Galaxy M series</a></li>
+                                <li><a href="#">Samsung Galaxy Note series</a></li>
+                                <li><a href="#">Samsung Galaxy S series</a></li>
+                                <li><a href="#">Samsung Galaxy Z seriES</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">Samsung</a>
+                            <ul class="sub-submenu">
+                                <li><a href="#">Samsung Galaxy A series</a></li>
+                                <li><a href="#">Samsung Galaxy A05</a></li>
+                                <li><a href="#">Samsung Galaxy F series</a></li>
+                                <li><a href="#">Samsung Galaxy J series</a></li>
+                                <li><a href="#">Samsung Galaxy M series</a></li>
+                                <li><a href="#">Samsung Galaxy Note series</a></li>
+                                <li><a href="#">Samsung Galaxy S series</a></li>
+                                <li><a href="#">Samsung Galaxy Z seriES</a></li>
+
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">OnePlus</a>
+                            <ul class="sub-submenu">
+                                <li><a href="#">One Plus 2</a></li>
+                                <li><a href="#">One Plus 3</a></li>
+                                <li><a href="#">One Plus 3T</a></li>
+                                <li><a href="#">One Plus 5</a></li>
+                                <li><a href="#">One Plus 5T</a></li>
+                                <li><a href="#">One Plus 6</a></li>
+                                <li><a href="#">One Plus 6T</a></li>
+                                <li><a href="#">One Plus 7</a></li>
+                                <li><a href="#">OnePlus 7 pro</a></li>
+                                <li><a href="#">OnePlus 7T</a></li>
+                                <li><a href="#">OnePlus 7T Pro</a></li>
+                                <li><a href="#">One Plus X</a></li>
+                                <li><a href="#">OnePlus 8</a></li>
+                                <li><a href="#">OnePlus 8 Pro</a></li>
+                                <li><a href="#">OnePlus 7T Pro</a></li>
+
+                            </ul>
+                        </li>
+                        <!-- Add more brands and models here -->
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">iPhone</a>
+                    <ul class="submenu">
+                        <li><a href="#">iPhone 5</a></li>
+                        <li><a href="#">iPhone 6</a></li>
+                        <li><a href="#">iPhone 7</a></li>
+                        <li><a href="#">iPhone 8</a></li>
+                        <li><a href="#">iPhone X</a></li>
+                        <li><a href="#">iPhone 11</a></li>
+                        <li><a href="#">iPhone 12</a></li>
+                        <!-- Add more iPhone models here -->
+                    </ul>
+                </li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="file:///D:/first%20e-commerce/loginpage.html/contacy%20us.html">Contact</a></li>
+                <li><a href="file:///D:/first%20e-commerce/loginpage.html/sign%20in.html">Sign in</a></li>
+                <li><a href="file:///D:/first%20e-commerce/loginpage.html/SIGN%20UP%20page.html">Sign
+                        up</a></li>
+
+            </ul>
+            <div class="containerr" style="margin-right: 50px;">
+                <input type="text" name="text" class="input" required="" placeholder="Type to search...">
+                <div class="icon">
+                    <img src="D:\first e-commerce\loginpage.html\icons8-search-50.png" alt="Search icon" width="30px"
+                        height="30px">
+                    <title>Search</title>
+                </div>
+            </div>
+            <button class="CartBtn">
+                <span class="IconContainer">
+                    <img src="D:\first e-commerce\loginpage.html\icons8-cart-24 (1).png" alt="add to cart" class="cart">
+                </span>
+                <p class="text">Add to Cart</p>
+            </button>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+    &nbsp;
+    <div class="slider" style="margin-left: 30px;">
+        <div class="slide"> <img src="C:\Users\BP Sharma\Downloads\Buy Any product get 40%off (2).png" alt="Slide 1"
+                width="1460px" height="600px">
+        </div>
+        <div class="slide"> <img src="C:\Users\BP Sharma\Downloads\Yellow Modern Summer Banner.png" alt="Slide 2"
+                width="1460px" height="600px">
+        </div>
+        <div class="slide"> <img src="C:\Users\BP Sharma\Downloads\Buy Any product get 40%off.png" alt="Slide 3"
+                width="1460px" height="600px">
+        </div>
+        <div class="slide"> <img src="C:\Users\BP Sharma\Downloads\Buy Any product get 40%off (1).png" alt="Slide 4"
+                width="1460px" height="600px">
+        </div>
+        <div class="slide"> <img src="c:\Users\BP Sharma\Downloads\Yellow Modern Summer Banner (4).png" alt="Slide 5"
+                width="1460px" height="600px">
+        </div>
+    </div>
+
+    <center>
+        <div class="pre"><img src="D:\first e-commerce\loginpage.html\Untitled design.png" height="130px" width="1450px"
+                style="margin-top: -90px; border: 2px black solid"></div>
+    </center>
+    <div class="category">
+        <a href="https://www.samsung.com/" class="item">
+            <span class="title">Samsung</span>
+            <span class="link" href="https://www.samsung.com/">Explore</span>
+            <img class="img" src="D:\first e-commerce\product images\Samsung s24 ultra\71RVuBs3q9L._SL1500_.jpg" alt=""
+                width="130px" height="130px" style="margin-top:-5px;">
+        </a>
+        <a href="https://www.apple.com/in/iphone/" class="item">
+            <span class="title">Apple</span>
+            <span class="link" href="https://www.apple.com/in/iphone/">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/81fxjeu8fdL._SL1500_.jpg" alt="" width="155px"
+                height="150px" style="margin-top:-15px; margin-right: -30px;">
+        </a>
+        <a href="https://www.motorola.com/" class="item">
+            <span class="title">Motorola</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img"
+                src="https://motorolaus.vtexassets.com/arquivos/ids/163784/razr-ecom-render-1-sedona-.png?v=638325829628900000?w=640&q=75"
+                alt="" width="145px" height="130px" style="margin-top: -5px; margin-right: -25px;">
+        </a>
+        <a href="https://www.vivo.com/in" class="item">
+            <span class="title">Vivo</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/61MejPOoLhL._SL1200_.jpg" alt="" width="125px"
+                height="120px">
+        </a>
+        <a href="https://www.mi.com/in/phone/" class="item">
+            <span class="title">Xiaomi</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/81zU65mJmJL._SL1500_.jpg" alt="" width="130px"
+                height="130px" style="margin-top: -5px;">
+        </a>
+        <a href="https://shop.iqoo.com/in/products/phone" class="item">
+            <span class="title">Iqoo</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/718jcIFYaAL._SL1200_.jpg" alt="" width="130px"
+                height="130px" style="margin-top: -5px;">
+        </a>
+
+        <a href="https://www.oppo.com/" class="item">
+            <span class="title">Oppo</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/61Gq6YKRQlL._SL1000_.jpg" alt="" width="125px"
+                height="120px">
+        </a>
+        <a href="https://www.poco.in/" class="item">
+            <span class="title">Poco</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/5127Ng5ddYL._SL1500_.jpg" alt="" width="90px"
+                height="160px" style="margin-top: -19px;">
+        </a><a href="https://www.realme.com/in/" class="item">
+            <span class="title">Realme</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/81GNHx0grQL._SL1500_.jpg" alt="" width="110px"
+                height="120px">
+
+        </a>
+        <a href="https://in.nothing.tech/" class="item">
+            <span class="title">Nothing</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/716BcXLcwIL._SL1500_.jpg" alt="" width="100px"
+                height="115px">
+
+        </a>
+        <a href="https://www.oneplus.in/store/phone" class="item">
+            <span class="title">Oneplus</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/61BAuSC0UnL._SL1464_.jpg" alt="" width="110px"
+                height="120px">
+        </a>
+        <a href="https://store.google.com/in/category/phones?hl=en-GB&pli=1" class="item">
+            <span class="title">Google</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/61l2V9RwcAL._SL1500_.jpg" alt="" width="170px"
+                height="160px" style="margin-top: -20px; margin-right: -35px;">
+        </a>
+        <a href="https://www.infinixmobiles.in/Smartphones" class="item">
+            <span class="title">Infinix</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://i.ebayimg.com/images/g/4JMAAOSwZrFmQyYB/s-l960.webp" alt="" width="160px"
+                height="150px" style="margin-top: -15px; margin-right: -20px;">
+        </a>
+        <a href="https://www.hmd.com/en_in/smartphones" class="item">
+            <span class="title">Nokia</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/61I76nE8enL._SL1500_.jpg" alt="" width="130px"
+                height="120px" style="margin-right: -15px;">
+        </a>
+        <a href="https://www.lavamobiles.com/" class="item">
+            <span class="title">Lava</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/71uOoXevxwL._SL1500_.jpg" alt="" width="130px"
+                height="120px" style="margin-right: -15px;">
+
+        </a>
+        <a href="https://www.tecno-mobile.com/phones" class="item">
+            <span class="title">Techno pova</span>
+            <span class="link" href="#">Explore</span>
+            <img class="img" src="https://m.media-amazon.com/images/I/61Nr811Q+cL._SL1280_.jpg" alt="" width="140px"
+                height="150px" style="margin-top: -15px; margin-right: -20px;">
+
+        </a>
+
+
+    </div>
+    <center><Strong>
+            <h1 style=" font-weight: bold; text-shadow: 2px 5px 12px rgba(0, 108, 128, 0.78),
+             -2px 3px 19px rgba(8, 170, 124, 1);">
+                Branded
+                Smartphones</h1>
+        </Strong></center>
+
+    &nbsp;<div class="container" style="margin-top: 20px;">
+        <div class="row justify-content-center">
+            <div class="col-12">
+            </div><!--end col-->
+        </div><!--end row-->
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="file:///D:/first%20e-commerce/product%20page/Samsung%20Galaxy%20S24%20Ultra%205G%20(Titanium%20Black,%2012GB,%20256GB%20Storage).html"
+                            class="image" style="height: auto; width: auto;">
+                            <img class="pic-1"
+                                src="D:\first e-commerce\product images\Samsung s24 ultra\71RVuBs3q9L._SL1500_.jpg">
+                            <img class="pic-2" src="D:\first e-commerce\product images\samsung s23 ultra\1.png">
+
+                        </a>
+                        <a href="#" class="product-like-icon" data-tip="Add to Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        <ul class="product-links">
+                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a
+                                href="file:///D:/first%20e-commerce/product%20page/Samsung%20Galaxy%20S24%20Ultra%205G%20(Titanium%20Black,%2012GB,%20256GB%20Storage)/Samsung%20Galaxy%20S24%20Ultra%205G%20(Titanium%20Black,%2012GB,%20256GB%20Storage).html">Samsung
+                                Galaxy S24 Ultra 5G (Titanium Black, 12GB,
+                                256GB Storage) </a></h3>
+                        <div class="price" style="color: black;">₹1,29,999<span>₹1,34,999</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="file:///D:/first%20e-commerce/product%20page/iPhone%2015%20Pro%20Max%20(1%20TB)%20-%20Natural%20Titanium.html"
+                            class=" image">
+                            <img class="pic-1"
+                                src="D:\first e-commerce\product images\iphone 15 pro max\Untitled design (1).png">
+                            <img class="pic-2"
+                                src="D:\first e-commerce\product images\iphone 15 pro max\Untitled design.png">
+                        </a>
+                        <span class="product-sale-label">Sale</span>
+                        <a href="#" class="product-like-icon" data-tip="Add to Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        <ul class="product-links">
+                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a
+                                href="file:///D:/first%20e-commerce/product%20page/iPhone%2015%20Pro%20Max%20(1%20TB)%20-%20Natural%20Titanium.html">Apple
+                                iPhone 15 Pro Max (1 TB) - Natural Titanium</a></h3>
+                        <div class="price">1,84,900 &nbsp;<span>1,99,900</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="file:///D:/first%20e-commerce/product%20page/vivo%20X%20Fold3%20Pro%205G%20(Celestial%20Black,%2016GB%20RAM,%20512GB%20Storage).html"
+                            class="image">
+                            <img class="pic-1"
+                                src="D:\first e-commerce\product images\vivo xfold 3 pro\61MejPOoLhL._SL1200_.jpg">
+                            <img class="pic-2"
+                                src="D:\first e-commerce\product images\vivo xfold 3 pro\61rEc3pkrpL._SL1200_.jpg">
+                        </a>
+                        <span class="product-sale-label">Sale</span>
+                        <a href="#" class="product-like-icon" data-tip="Add to Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        <ul class="product-links">
+                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a
+                                href="file:///D:/first%20e-commerce/product%20page/vivo%20X%20Fold3%20Pro%205G%20(Celestial%20Black,%2016GB%20RAM,%20512GB%20Storage).html">
+                                vivo X Fold3 Pro 5G (Celestial Black, 16GB RAM, 512GB Storage)</a>
+                        </h3>
+                        <div class="price">₹1,59,999
+                            <span>₹1,69,999</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="file:///D:/first%20e-commerce/product%20page/motorola%20edge%2050%20pro%205g.html"
+                            class="image">
+                            <img class="pic-1"
+                                src="D:\first e-commerce\product images\motorola edge 50 pro 5g\Untitled design (1).png">
+                            <img class="pic-2"
+                                src="D:\first e-commerce\product images\motorola edge 50 pro 5g\Untitled design.png">
+                        </a>
+                        <span class="product-sale-label">Sale</span>
+                        <a href="#" class="product-like-icon" data-tip="Add to Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        <ul class="product-links">
+                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a
+                                href="file:///D:/first%20e-commerce/product%20page/motorola%20edge%2050%20pro%205g.html">Motorola
+                                Edge 50 Pro 5G (Black Beauty, 8GB RAM, 256GB Storage)</a>
+                        </h3>
+                        <div class="price"> ₹31,530 &nbsp;<span>₹36,999</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="https://www.amazon.in/Xiaomi-Storage-Flagship-Snapdragon-Hypercharge/dp/B0CZ9FTNNR/ref=sr_1_4?dib=eyJ2IjoiMSJ9.4hQ8v_ECKtho_qZJWw-105z948mAJzrFWVjS6G2mKmO-ysiMuzLYA8YH_kjPrsQlY_ogkOQh-xRvazXqrWh0l_Z7ecRnCKIYjqSvcBYlIZ8S_VMhbUA4MEBPfksdv8XsSMV8Trp3QeeqDnX115aydbtjX3ICDXMimE1cQuxF1RmctJL_t-Af-hgIXgkMN3dxXGyps7qWvW2WpWw8JEBJ1g314SEdxIXCG1txd1uCtgM.BNpDg6B4QSXdLQqCxwYIXMIi3daSMlfmdS57PDhU1bQ&dib_tag=se&keywords=xiaomi+14+ultra&qid=1718533803&sr=8-4"
+                            class="image">
+                            <img class="pic-1"
+                                src="D:\first e-commerce\product images\xiaomi 14 ultra\81zU65mJmJL._SL1500_.jpg">
+                            <img class="pic-2"
+                                src="D:\first e-commerce\product images\xiaomi 14 ultra\718YkSyu-tL._SL1500_.jpg">
+                        </a>
+                        <span class="product-sale-label">Sale</span>
+                        <a href="#" class="product-like-icon" data-tip="Add to Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        <ul class="product-links">
+                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a
+                                href="https://www.amazon.in/Xiaomi-Storage-Flagship-Snapdragon-Hypercharge/dp/B0CZ9FTNNR/ref=sr_1_4?dib=eyJ2IjoiMSJ9.4hQ8v_ECKtho_qZJWw-105z948mAJzrFWVjS6G2mKmO-ysiMuzLYA8YH_kjPrsQlY_ogkOQh-xRvazXqrWh0l_Z7ecRnCKIYjqSvcBYlIZ8S_VMhbUA4MEBPfksdv8XsSMV8Trp3QeeqDnX115aydbtjX3ICDXMimE1cQuxF1RmctJL_t-Af-hgIXgkMN3dxXGyps7qWvW2WpWw8JEBJ1g314SEdxIXCG1txd1uCtgM.BNpDg6B4QSXdLQqCxwYIXMIi3daSMlfmdS57PDhU1bQ&dib_tag=se&keywords=xiaomi%2B14%2Bultra&qid=1718533803&sr=8-4&th=1">Xiaomi
+                                14 Ultra (White, 16GB RAM, 512GB Storage) |
+                                Snapdragon 8 Gen 3</a>
+                        </h3>
+                        <div class="price"> ₹99,999 &nbsp;<span>₹1,19,999</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="https://shop.iqoo.com/in/product/2041?skuId=8269" class="image">
+                            <img class="pic-1" src="D:\first e-commerce\product images\iqoo 12\Untitled design (1).png">
+                            <img class="pic-2" src="D:\first e-commerce\product images\iqoo 12\Untitled design.png">
+                        </a>
+                        <span class="product-sale-label">Sale</span>
+                        <a href="#" class="product-like-icon" data-tip="Add to Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        <ul class="product-links">
+                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a href="https://shop.iqoo.com/in/product/2041?skuId=8269">iQOO 12 5G (Desert
+                                Red, 16GB RAM, 512GB Storage) | Snapdragon® 8
+                                Gen 3 </a>
+                        </h3>
+                        <div class="price"> ₹52,999 &nbsp;<span>₹59,999</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="https://www.amazon.in/Realme-Submarine-Blue-256GB-Storage/dp/B0CSWNPRJ1/ref=sr_1_2?crid=1T09SX9Q0BUGZ&dib=eyJ2IjoiMSJ9.7Qw1AAVp-xxJO0xkfaG1bnbwVmYpu_8DvCFUm4x-xjpyzdaTfnKK8KNbmFVzJFbPcBJxM_hGIT9fhyENTMcMNhm0i-uSBNeXmCvlV-sTyuY_oNGJW6-EH_0rBZBqsjkmlQrwuHDz879ElHteKm2rhtQQsh2Zbzg-d0eolO5ldI6qUCt8y-hMOfK4dqZQZrKklAkFltY72X8OlEykiDRq7VhWlqqI6EWY0TMRalT_quo.M33BJM7UOTqvMjuKdLd-w70W1WQjg4-rkRDGTyqAa4c&dib_tag=se&keywords=realme+12+pro+plus+5g&qid=1718535157&sprefix=real%2Caps%2C353&sr=8-2"
+                            class="image">
+                            <img class="pic-1"
+                                src="D:\first e-commerce\product images\realme 12pro 5g\Untitled design (2).png">
+                            <img class="pic-2"
+                                src="D:\first e-commerce\product images\realme 12pro 5g\Untitled design.png">
+                        </a>
+                        <span class="product-sale-label">Sale</span>
+                        <a href="#" class="product-like-icon" data-tip="Add to Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        <ul class="product-links">
+                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a
+                                href="https://www.amazon.in/Realme-Submarine-Blue-256GB-Storage/dp/B0CSWNPRJ1/ref=sr_1_2?crid=1T09SX9Q0BUGZ&dib=eyJ2IjoiMSJ9.7Qw1AAVp-xxJO0xkfaG1bnbwVmYpu_8DvCFUm4x-xjpyzdaTfnKK8KNbmFVzJFbPcBJxM_hGIT9fhyENTMcMNhm0i-uSBNeXmCvlV-sTyuY_oNGJW6-EH_0rBZBqsjkmlQrwuHDz879ElHteKm2rhtQQsh2Zbzg-d0eolO5ldI6qUCt8y-hMOfK4dqZQZrKklAkFltY72X8OlEykiDRq7VhWlqqI6EWY0TMRalT_quo.M33BJM7UOTqvMjuKdLd-w70W1WQjg4-rkRDGTyqAa4c&dib_tag=se&keywords=realme+12+pro+plus+5g&qid=1718535157&sprefix=real%2Caps%2C353&sr=8-2">Realme
+                                12 Pro+ 5G (Submarine Blue, 12GB RAM, 256GB Storage)</a>
+                        </h3>
+                        <div class="price"> ₹31,399 &nbsp;<span>₹37,999</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="product-grid">
+                    <div class="product-image">
+                        <a href="https://www.amazon.in/Nothing-Mediatek-Dimensity-Processor-Charging/dp/B0CX74JKLL/ref=sr_1_1?crid=1LS3XJALX6JZZ&dib=eyJ2IjoiMSJ9.-hYH0ryk93j8z29-RbbzCqhsoYqf520We7FuAEo9e_6Fl5zNuk_E3euxEgjKps8_GGOwiErGy5hA5GP0g7VGk4MEqrr3itITqVZNkugFZUuZLmokXEHd-QXvzTCx8eMDHitpvFqZBg85OIgXv_Tb-7kzMzLnPDeq-h1npwhwacS-lMeNO20nf12B5E000BNP7UGZVA5U_ts1JVNlAT5pd3ElwVeHjTu7IPXuzCoK3z4.XQX99W1rCYsKewEzM3hHamhJi4BMcVv8xtu67AbXIsI&dib_tag=se&keywords=nothing&qid=1718538598&sprefix=nothin%2Caps%2C298&sr=8-1"
+                            class="image">
+                            <img class="pic-1" src="D:\first e-commerce\product images\Nothing 2a\Untitled design.png">
+                            <img class="pic-2"
+                                src="D:\first e-commerce\product images\Nothing 2a\Untitled design (2).png">
+                        </a>
+                        <span class="product-sale-label">Sale</span>
+                        <a href="#" class="product-like-icon" data-tip="Add to Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        <ul class="product-links">
+                            <li><a href="#"><i class="fa fa-search"></i></a></li>
+                            <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                            <li><a href="#"><i class="fa fa-random"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title"><a
+                                href="https://www.amazon.in/Nothing-Mediatek-Dimensity-Processor-Charging/dp/B0CX74JKLL/ref=sr_1_1?crid=1LS3XJALX6JZZ&dib=eyJ2IjoiMSJ9.-hYH0ryk93j8z29-RbbzCqhsoYqf520We7FuAEo9e_6Fl5zNuk_E3euxEgjKps8_GGOwiErGy5hA5GP0g7VGk4MEqrr3itITqVZNkugFZUuZLmokXEHd-QXvzTCx8eMDHitpvFqZBg85OIgXv_Tb-7kzMzLnPDeq-h1npwhwacS-lMeNO20nf12B5E000BNP7UGZVA5U_ts1JVNlAT5pd3ElwVeHjTu7IPXuzCoK3z4.XQX99W1rCYsKewEzM3hHamhJi4BMcVv8xtu67AbXIsI&dib_tag=se&keywords=nothing&qid=1718538598&sprefix=nothin%2Caps%2C298&sr=8-1">Motorola
+                                Edge 50 Pro 5G (Black Beauty, 8GB RAM, 256GB Storage)</a>
+                        </h3>
+                        <div class="price"> ₹31,530 &nbsp;<span>₹36,999</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br><br><br>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+    <br><br><br><br><br><br><br><br><br>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideCount = slides.length;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slideCount;
+            showSlide(currentSlide);
+        }
+
+        setInterval(nextSlide, 3000); // Change slide every 3 seconds
+
+        const burger = document.querySelector('.burger');
+        const navLinks = document.querySelector('.nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            burger.classList.toggle('toggle');
+        });
+
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                burger.classList.remove('toggle');
+            }
+        });
+        // Get the button:
+        let mybutton = document.getElementById("myBtn");
+
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    <div style="width: 1517px; background-color: black; margin-top: 600px;">
+        <div class="container newsletter" style="height: 300px; margin-top: 600px;">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 style="margin-left: 170px;">Subscribe To Our Newsletter</h2>
+                    <p style="margin-left: 170px;">Stay in touch with the latest news and releases</p>
+                </div>
+                <div class="col-lg-12">
+                    <form style="margin-left: 170px;">
+                        <div class="row g-0 justify-content-center">
+                            <div class="col-md-8">
+                                <input type="email" placeholder="Enter your email address" required>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="submit" value="Subscribe">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+
+            <img src="C:\Users\BP Sharma\OneDrive\Pictures\Screenshots\Screenshot 2024-05-213 084644.png" alt=""
+                height="100px" width="100px"
+                style="margin-left: 30px; filter: drop-shadow(0 0 0.75rem rgb(237, 233, 234));">
+
+            <p class="footer-links">
+                <a href="#" class="link-1">Home</a>
+
+                <a href="#">Blog</a>
+
+                <a href="#">Pricing</a>
+
+                <a href="#">About</a>
+
+                <a href="#">FAQ'S</a>
+
+                <a href="#">Contact</a>
+            </p>
+
+            <p class="footer-company-name">Mobilux © 2024</p>
+        </div>
+
+        <div class="footer-center">
+
+            <div>
+                <i class="fa fa-map-marker"></i>
+                <p><span>Shastri Nagar, Jaipur</span>Rajasthan, India</p>
+            </div>
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>+91 9664336854,</p>
+                <p>+91 9664336854</p>
+            </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p><a href="buddhiprakashsharma032@gmail.com">buddhiprakashsharma032@gmail.com</a></p>
+            </div>
+
+        </div>
+
+        <div class="footer-right">
+
+            <p class="footer-company-about">
+                <span>About the company</span>
+                Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
+                vehicula sit amet.
+            </p>
+
+            <div class="social-menu" style="margin-top: 50px; margin-left: 90px;">
+                <ul>
+                    <li><a href="https://facebook.com" target="blank"><i class="fab fa-facebook"
+                                style="margin-top: -9.5px;"></i></i></a>
+                    </li>
+                    <li><a href="https://www.instagram.com/_buddhi_prakash/" target="blank"><i class="fab fa-instagram"
+                                style="margin-top: -10px;"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/buddhi-prakash-sharma-384424293" target="blank"><i
+                                class="fab fa-linkedin-in" style="margin-top: -10px;"></i></a></li>
+                    <li><a href="https://in.pinterest.com/buddhiprakashsharma032/"><i class="fab fa-pinterest"
+                                target="blank" style="margin-top: -10px;"></i></a></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </footer>
+</body>
+
+</html>
